@@ -1,4 +1,4 @@
-package com.abanoub.newsify.data.datasource
+package com.abanoub.newsify.data.remote
 
 import com.abanoub.newsify.domain.model.NewsResponse
 import retrofit2.Response
