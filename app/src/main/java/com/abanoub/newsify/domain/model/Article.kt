@@ -2,7 +2,7 @@ package com.abanoub.newsify.domain.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Articles(
+data class Article(
     @SerializedName("source") var source: Source? = Source(),
     @SerializedName("author") var author: String? = null,
     @SerializedName("title") var title: String? = null,

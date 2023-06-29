@@ -10,5 +10,5 @@ data class NewsResponse(
     var totalResults: Int? = null,
 
     @SerializedName("articles")
-    var articles: ArrayList<Articles> = arrayListOf()
+    var articles: ArrayList<Article> = arrayListOf()
 )
