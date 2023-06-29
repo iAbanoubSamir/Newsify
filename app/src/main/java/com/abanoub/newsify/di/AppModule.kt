@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Room
 import com.abanoub.newsify.data.local.ArticleDao
 import com.abanoub.newsify.data.local.NewsDatabase
+import com.abanoub.newsify.data.mapper.ArticleMapper
+import com.abanoub.newsify.data.mapper.ArticleMapperImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,5 +31,11 @@ object AppModule {
     @Singleton
     fun provideArticleDao(database: NewsDatabase): ArticleDao {
         return database.articleDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideArticleMapper(): ArticleMapper {
+        return ArticleMapperImpl()
     }
 }
