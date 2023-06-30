@@ -1,7 +1,10 @@
 package com.abanoub.newsify.domain.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Article(
     @SerializedName("source") var source: Source? = Source(),
     @SerializedName("author") var author: String? = null,
@@ -11,5 +14,4 @@ data class Article(
     @SerializedName("urlToImage") var urlToImage: String? = null,
     @SerializedName("publishedAt") var publishedAt: String? = null,
     @SerializedName("content") var content: String? = null
-
-)
+) : Parcelable
