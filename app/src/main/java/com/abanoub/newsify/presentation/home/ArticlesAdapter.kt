@@ -43,8 +43,6 @@ class ArticlesAdapter(private val listener: OnItemClickListener) :
                 Glide.with(binding.root).load(article.urlToImage).into(ivArticleImage)
                 tvTitle.text = article.title
                 tvDescription.text = article.description
-                tvDatePublished.text = article.publishedAt
-                tvSource.text = article.source?.name
             }
         }
     }
