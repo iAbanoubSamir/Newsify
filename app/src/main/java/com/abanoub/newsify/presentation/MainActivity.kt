@@ -36,8 +36,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.mainToolbar)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        supportActionBar!!.setDisplayHomeAsUpEnabled(false)
-        supportActionBar!!.setDisplayShowTitleEnabled(false)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayShowTitleEnabled(true)
     }
 
     override fun onSupportNavigateUp(): Boolean {
