@@ -10,4 +10,12 @@
         android:name="com.abanoub.newsify.presentation.home.HomeFragment"
         android:label="@string/app_name"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/favouritesFragment"
+        android:name="com.abanoub.newsify.presentation.favourite.FavouritesFragment"
+        android:label="@string/favourites"
+        tools:layout="@layout/fragment_favourites" />
+    <action
+        android:id="@+id/action_global_favouritesFragment"
+        app:destination="@id/favouritesFragment" />
 </navigation>
