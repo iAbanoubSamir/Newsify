@@ -2,26 +2,27 @@
 Newsify is an Android app that brings news from news-api.org to your phone. You can add articles to your favourites list and delete them using swipe gestures.
 
 ## Screenshots
-![Screenshot 1](/screenshots/screenshot1.jpg "Screenshot 1")
-![Screenshot 2](/screenshots/screenshot2.jpg "Screenshot 2")
-![Screenshot 3](/screenshots/screenshot3.jpg "Screenshot 3")
+<p align="center"><img src="/screenshots/screenshot1.jpg" alt="Screenshot 1" width="200" height="400" /></p>
+<p align="center"><img src="/screenshots/screenshot2.jpg" alt="Screenshot 2" width="200" height="400" /></p>
+<p align="center"><img src="/screenshots/screenshot3.jpg" alt="Screenshot 3" width="200" height="400" /></p>
 
 ## Getting started
 To get started with the app, clone the repository and open it in Android Studio:
+<br>
 `git clone https://github.com/iAbanoubSamir/Newsify.git`
 
 ## Build with
 The app uses the following dependencies:
-- Dagger-Hilt: Dependency injection library
-- Coroutines: Concurrency library
-- Flow: Asynchronous stream processing library
-- ViewModel: Architecture component for managing UI-related data in a lifecycle-conscious way
-- Room: SQLite database library
-- Retrofit2: HTTP client library
-- okHttp: HTTP client library
-- Navigation: Navigation component for navigating between screens
-- Glide: Image loading and caching library
-- ViewBinding: Library for generating view binding classes
+**- Dagger-Hilt:** Dependency injection library
+**- Coroutines:** Concurrency library
+**- Flow:** Asynchronous stream processing library
+**- ViewModel:** Architecture component for managing UI-related data in a lifecycle-conscious way
+**- Room:** SQLite database library
+**- Retrofit2:** HTTP client library
+**- okHttp:** HTTP client library
+**- Navigation:** Navigation component for navigating between screens
+**- Glide:** Image loading and caching library
+**- ViewBinding:** Library for generating view binding classes
 
 ## Architecture
 The app follows the Clean Architecture pattern, with separate layers for presentation, domain, and data. The MVVM pattern is used for the presentation layer.
