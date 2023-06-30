@@ -37,7 +37,7 @@ class FavouriteRepositoryImpl @Inject constructor(
 
     override suspend fun deleteFromFavourite(article: Article) {
         try {
-            dao.delete(mapper.toEntity(article))
+            dao.delete(article.url.toString())
         } catch (_: Exception) {
         }
     }
