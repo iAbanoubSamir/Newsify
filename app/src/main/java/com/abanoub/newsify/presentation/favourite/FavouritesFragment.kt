@@ -11,7 +11,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.abanoub.newsify.databinding.FragmentFavouritesBinding
 import com.abanoub.newsify.domain.model.Article
 import com.abanoub.newsify.domain.util.Resource
@@ -46,6 +48,7 @@ class FavouritesFragment : Fragment(), ArticlesAdapter.OnItemClickListener {
         observeForFavourites()
 
         setupRecyclerView()
+        setupSwipeToDelete()
     }
 
     private fun observeForFavourites() {
@@ -91,6 +94,39 @@ class FavouritesFragment : Fragment(), ArticlesAdapter.OnItemClickListener {
     private fun submitNewsList(news: List<Article>) {
         hideProgressBar()
         articlesAdapter.submitList(news)
+    }
+
+    private fun setupSwipeToDelete() {
+        val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.Callback() {
+            override fun getMovementFlags(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder
+            ): Int {
+                val dragFlags = 0
+                val swipeFlags = ItemTouchHelper.START or ItemTouchHelper.END
+                return makeMovementFlags(dragFlags, swipeFlags)
+            }
+
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                deleteFavourite(viewHolder.adapterPosition)
+            }
+        })
+        itemTouchHelper.attachToRecyclerView(binding.rvFavouriteArticles)
+    }
+
+    private fun deleteFavourite(position: Int) {
+        val article = articlesAdapter.currentList[position]
+        viewModel.deleteFavourite(article)
+        viewModel.getFavourites()
+        articlesAdapter.notifyDataSetChanged()
     }
 
     override fun onArticleClick(article: Article) {
