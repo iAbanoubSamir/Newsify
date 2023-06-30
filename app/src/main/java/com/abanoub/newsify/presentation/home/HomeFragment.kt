@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.abanoub.newsify.databinding.FragmentHomeBinding
 import com.abanoub.newsify.domain.model.Article
@@ -143,7 +144,8 @@ class HomeFragment : Fragment(), ArticlesAdapter.OnItemClickListener {
     }
 
     override fun onArticleClick(article: Article) {
-
+        val action = HomeFragmentDirections.actionHomeFragmentToArticleFragment(article)
+        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {
