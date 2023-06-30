@@ -28,7 +28,7 @@ The app uses the following dependencies:
 The app follows the Clean Architecture pattern, with separate layers for presentation, domain, and data. The MVVM pattern is used for the presentation layer.
 
 ## Acknowledgments
-Thanks to news-api.org for providing news articles for the app.
+We used [news-api.org](news-api.org).
 
 ### License
 <pre><code>Copyright 2023 Abanoub Samir
