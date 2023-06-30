@@ -15,12 +15,12 @@ class NewsRepositoryImpl @Inject constructor(
     private val api: NewsApiService
 ) : NewsRepository {
 
-    override suspend fun getNews(countryCode: String, page: Int):
+    override suspend fun getNews(countryCode: String):
             Flow<Resource<List<Article>>> = flow {
         emit(Resource.Loading)
         try {
             val response = withContext(Dispatchers.IO) {
-                api.getNews(countryCode, page)
+                api.getNews(countryCode)
             }
             if (response.isSuccessful) {
                 emit(Resource.Success(response.body()!!.articles))
@@ -32,12 +32,12 @@ class NewsRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun searchNews(query: String, page: Int):
+    override suspend fun searchNews(query: String):
             Flow<Resource<List<Article>>> = flow {
         emit(Resource.Loading)
         try {
             val response = withContext(Dispatchers.IO) {
-                api.searchNews(query, page)
+                api.searchNews(query)
             }
             if (response.isSuccessful) {
                 emit(Resource.Success(response.body()!!.articles))

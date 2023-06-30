@@ -16,15 +16,11 @@ interface NewsApiService {
     suspend fun getNews(
         @Query("country")
         countryCode: String = "us",
-        @Query("page")
-        page: Int
     ): Response<NewsResponse>
 
     @GET("v2/everything")
     suspend fun searchNews(
         @Query("q")
         query: String,
-        @Query("page")
-        page: Int
     ): Response<NewsResponse>
 }

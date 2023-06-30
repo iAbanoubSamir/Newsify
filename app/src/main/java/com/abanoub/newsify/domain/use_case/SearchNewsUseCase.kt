@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface SearchNewsUseCase {
 
-    suspend operator fun invoke(query: String, page: Int): Flow<Resource<List<Article>>>
+    suspend operator fun invoke(query: String): Flow<Resource<List<Article>>>
 }

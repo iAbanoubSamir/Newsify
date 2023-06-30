@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface GetNewsUseCase {
 
-    suspend operator fun invoke(countryCode: String, page: Int): Flow<Resource<List<Article>>>
+    suspend operator fun invoke(countryCode: String): Flow<Resource<List<Article>>>
 }

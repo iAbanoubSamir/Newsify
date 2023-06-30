@@ -10,7 +10,7 @@ class SearchNewsUseCaseImpl(
     private val repository: NewsRepository
 ) : SearchNewsUseCase {
 
-    override suspend fun invoke(query: String, page: Int): Flow<Resource<List<Article>>> {
-        return repository.searchNews(query, page)
+    override suspend fun invoke(query: String): Flow<Resource<List<Article>>> {
+        return repository.searchNews(query)
     }
 }

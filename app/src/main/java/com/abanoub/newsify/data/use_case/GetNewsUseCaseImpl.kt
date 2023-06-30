@@ -11,7 +11,7 @@ class GetNewsUseCaseImpl @Inject constructor(
     private val repository: NewsRepository
 ) : GetNewsUseCase {
 
-    override suspend fun invoke(countryCode: String, page: Int): Flow<Resource<List<Article>>> {
-        return repository.getNews(countryCode, page)
+    override suspend fun invoke(countryCode: String): Flow<Resource<List<Article>>> {
+        return repository.getNews(countryCode)
     }
 }
