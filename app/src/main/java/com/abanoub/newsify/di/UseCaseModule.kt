@@ -1,10 +1,12 @@
 package com.abanoub.newsify.di
 
+import com.abanoub.newsify.data.use_case.AddArticleToFavouriteUseCaseImpl
 import com.abanoub.newsify.data.use_case.GetFavouriteNewsUseCaseImpl
 import com.abanoub.newsify.data.use_case.GetNewsUseCaseImpl
 import com.abanoub.newsify.data.use_case.SearchNewsUseCaseImpl
 import com.abanoub.newsify.domain.repository.FavouriteRepository
 import com.abanoub.newsify.domain.repository.NewsRepository
+import com.abanoub.newsify.domain.use_case.AddArticleToFavouriteUseCase
 import com.abanoub.newsify.domain.use_case.GetFavouriteNewsUseCase
 import com.abanoub.newsify.domain.use_case.GetNewsUseCase
 import com.abanoub.newsify.domain.use_case.SearchNewsUseCase
@@ -34,5 +36,11 @@ object UseCaseModule {
     @Singleton
     fun provideGetFavouriteNewsUseCase(favouriteRepository: FavouriteRepository): GetFavouriteNewsUseCase {
         return GetFavouriteNewsUseCaseImpl(favouriteRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAddArticleToFavouriteUseCase(favouriteRepository: FavouriteRepository): AddArticleToFavouriteUseCase {
+        return AddArticleToFavouriteUseCaseImpl(favouriteRepository)
     }
 }
