@@ -1,6 +1,8 @@
 package com.abanoub.newsify.presentation
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -8,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.abanoub.newsify.MainGraphDirections
 import com.abanoub.newsify.R
 import com.abanoub.newsify.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -44,5 +47,22 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_favourites -> {
+                val action = MainGraphDirections.actionGlobalFavouritesFragment()
+                navController.navigate(action)
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
