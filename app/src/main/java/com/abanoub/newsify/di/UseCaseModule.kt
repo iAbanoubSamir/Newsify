@@ -1,8 +1,11 @@
 package com.abanoub.newsify.di
 
+import com.abanoub.newsify.data.use_case.GetFavouriteNewsUseCaseImpl
 import com.abanoub.newsify.data.use_case.GetNewsUseCaseImpl
 import com.abanoub.newsify.data.use_case.SearchNewsUseCaseImpl
+import com.abanoub.newsify.domain.repository.FavouriteRepository
 import com.abanoub.newsify.domain.repository.NewsRepository
+import com.abanoub.newsify.domain.use_case.GetFavouriteNewsUseCase
 import com.abanoub.newsify.domain.use_case.GetNewsUseCase
 import com.abanoub.newsify.domain.use_case.SearchNewsUseCase
 import dagger.Module
@@ -25,5 +28,11 @@ object UseCaseModule {
     @Singleton
     fun provideSearchNewsUseCase(newsRepository: NewsRepository): SearchNewsUseCase {
         return SearchNewsUseCaseImpl(newsRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetFavouriteNewsUseCase(favouriteRepository: FavouriteRepository): GetFavouriteNewsUseCase {
+        return GetFavouriteNewsUseCaseImpl(favouriteRepository)
     }
 }
