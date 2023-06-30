@@ -8,7 +8,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.withContext
-import retrofit2.HttpException
 import javax.inject.Inject
 
 class NewsRepositoryImpl @Inject constructor(
@@ -27,7 +26,7 @@ class NewsRepositoryImpl @Inject constructor(
             } else {
                 emit(Resource.Error(response.message()))
             }
-        } catch (e: HttpException) {
+        } catch (e: Exception) {
             emit(Resource.Error(e.message))
         }
     }
@@ -44,7 +43,7 @@ class NewsRepositoryImpl @Inject constructor(
             } else {
                 emit(Resource.Error(response.message()))
             }
-        } catch (e: HttpException) {
+        } catch (e: Exception) {
             emit(Resource.Error(e.message))
         }
     }
