@@ -12,8 +12,10 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.abanoub.newsify.databinding.FragmentArticleBinding
+import com.abanoub.newsify.domain.model.Article
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,6 +25,8 @@ class ArticleFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val args: ArticleFragmentArgs by navArgs()
+
+    private val viewModel: ArticleViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,6 +42,15 @@ class ArticleFragment : Fragment() {
 
         setupWebView()
 
+        binding.fabAddToFavourite.setOnClickListener {
+            onAddFavouriteClick(args.article)
+        }
+
+    }
+
+    private fun onAddFavouriteClick(article: Article) {
+        viewModel.addToFavourite(article)
+        showSnackBar("Article Added To Favourites!")
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -76,6 +89,10 @@ class ArticleFragment : Fragment() {
 
     private fun showErrorSnackBar(message: String) {
         hideProgressBar()
+        Snackbar.make(requireContext(), binding.root, message, Snackbar.LENGTH_SHORT).show()
+    }
+
+    private fun showSnackBar(message: String) {
         Snackbar.make(requireContext(), binding.root, message, Snackbar.LENGTH_SHORT).show()
     }
 
