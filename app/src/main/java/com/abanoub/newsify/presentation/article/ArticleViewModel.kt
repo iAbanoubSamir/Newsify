@@ -6,9 +6,10 @@ import com.abanoub.newsify.domain.model.Article
 import com.abanoub.newsify.domain.use_case.AddArticleToFavouriteUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
-class ArticleViewModel(
+class ArticleViewModel @Inject constructor(
     private val addArticleToFavouriteUseCase: AddArticleToFavouriteUseCase
 ) : ViewModel() {
 
