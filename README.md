@@ -13,16 +13,16 @@ To get started with the app, clone the repository and open it in Android Studio:
 
 ## Build with
 The app uses the following dependencies:
-**- Dagger-Hilt:** Dependency injection library
-**- Coroutines:** Concurrency library
-**- Flow:** Asynchronous stream processing library
-**- ViewModel:** Architecture component for managing UI-related data in a lifecycle-conscious way
-**- Room:** SQLite database library
-**- Retrofit2:** HTTP client library
-**- okHttp:** HTTP client library
-**- Navigation:** Navigation component for navigating between screens
-**- Glide:** Image loading and caching library
-**- ViewBinding:** Library for generating view binding classes
+- **Dagger-Hilt:** Dependency injection library
+- **Coroutines:** Concurrency library
+- **Flow:** Asynchronous stream processing library
+- **ViewModel:** Architecture component for managing UI-related data in a lifecycle-conscious way
+- **Room:** SQLite database library
+- **Retrofit2:** HTTP client library
+- **okHttp:** HTTP client library
+- **Navigation:** Navigation component for navigating between screens
+- **Glide:** Image loading and caching library
+- **ViewBinding:** Library for generating view binding classes
 
 ## Architecture
 The app follows the Clean Architecture pattern, with separate layers for presentation, domain, and data. The MVVM pattern is used for the presentation layer.
